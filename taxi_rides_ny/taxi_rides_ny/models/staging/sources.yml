@@ -1,88 +1,90 @@
+version: 2
+
 sources:
   - name: raw_data
-    description: "Raw taxi trip data from NYC TLC
-    database: taxi_rides_ny # env_var('GCP_PROJECT_ID', 'calm-snowfall-485503-b4') in bigquery  
-    schema: prod  #  demo_dataset_ny_taxi in bigquery
+    description: "Raw taxi trip data from NYC TLC"
+    database: taxi_rides_ny
+    schema: prod
    
     tables:
       - name: green_tripdata
-        description: Raw green taxi trip records
+        description: "Raw green taxi trip records"
         loaded_at_field: lpep_pickup_datetime
         columns:
           - name: vendorid
-            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
+            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Raw data may contain nulls, filtered in staging"
           - name: lpep_pickup_datetime
-            description: Date and time when the meter was engaged
+            description: "Date and time when the meter was engaged"
           - name: lpep_dropoff_datetime
-            description: Date and time when the meter was disengaged
+            description: "Date and time when the meter was disengaged"
           - name: passenger_count
-            description: Number of passengers in the vehicle
+            description: "Number of passengers in the vehicle"
           - name: trip_distance
-            description: Trip distance in miles
+            description: "Trip distance in miles"
           - name: pulocationid
-            description: TLC Taxi Zone where the meter was engaged
+            description: "TLC Taxi Zone where the meter was engaged"
           - name: dolocationid
-            description: TLC Taxi Zone where the meter was disengaged
+            description: "TLC Taxi Zone where the meter was disengaged"
           - name: ratecodeid
-            description: Rate code (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
+            description: "Rate code (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)"
           - name: store_and_fwd_flag
-            description: Trip record held in vehicle memory (Y/N)
+            description: "Trip record held in vehicle memory (Y/N)"
           - name: payment_type
-            description: Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)
+            description: "Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)"
           - name: fare_amount
-            description: Time and distance fare
+            description: "Time and distance fare"
           - name: extra
-            description: Miscellaneous extras and surcharges
+            description: "Miscellaneous extras and surcharges"
           - name: mta_tax
-            description: MTA tax
+            description: "MTA tax"
           - name: tip_amount
-            description: Tip amount (credit card only)
+            description: "Tip amount (credit card only)"
           - name: tolls_amount
-            description: Total tolls paid
+            description: "Total tolls paid"
           - name: improvement_surcharge
-            description: Improvement surcharge
+            description: "Improvement surcharge"
           - name: total_amount
-            description: Total amount charged
+            description: "Total amount charged"
           - name: trip_type
-            description: Trip type (1=Street-hail, 2=Dispatch)
+            description: "Trip type (1=Street-hail, 2=Dispatch)"
           - name: ehail_fee
-            description: E-hail fee
+            description: "E-hail fee"
 
       - name: yellow_tripdata
-        description: Raw yellow taxi trip records
+        description: "Raw yellow taxi trip records"
         loaded_at_field: tpep_pickup_datetime
         columns:
           - name: vendorid
-            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
+            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Raw data may contain nulls, filtered in staging"
           - name: tpep_pickup_datetime
-            description: Date and time when the meter was engaged
+            description: "Date and time when the meter was engaged"
           - name: tpep_dropoff_datetime
-            description: Date and time when the meter was disengaged
+            description: "Date and time when the meter was disengaged"
           - name: passenger_count
-            description: Number of passengers in the vehicle
+            description: "Number of passengers in the vehicle"
           - name: trip_distance
-            description: Trip distance in miles
+            description: "Trip distance in miles"
           - name: pulocationid
-            description: TLC Taxi Zone where the meter was engaged
+            description: "TLC Taxi Zone where the meter was engaged"
           - name: dolocationid
-            description: TLC Taxi Zone where the meter was disengaged
+            description: "TLC Taxi Zone where the meter was disengaged"
           - name: ratecodeid
-            description: Rate code (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
+            description: "Rate code (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)"
           - name: store_and_fwd_flag
-            description: Trip record held in vehicle memory (Y/N)
+            description: "Trip record held in vehicle memory (Y/N)"
           - name: payment_type
-            description: Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)
+            description: "Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)"
           - name: fare_amount
-            description: Time and distance fare
+            description: "Time and distance fare"
           - name: extra
-            description: Miscellaneous extras and surcharges
+            description: "Miscellaneous extras and surcharges"
           - name: mta_tax
-            description: MTA tax
+            description: "MTA tax"
           - name: tip_amount
-            description: Tip amount (credit card only)
+            description: "Tip amount (credit card only)"
           - name: tolls_amount
-            description: Total tolls paid
+            description: "Total tolls paid"
           - name: improvement_surcharge
-            description: Improvement surcharge
+            description: "Improvement surcharge"
           - name: total_amount
-            description: Total amount charged
+            description: "Total amount charged"
