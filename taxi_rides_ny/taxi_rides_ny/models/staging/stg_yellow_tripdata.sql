@@ -18,13 +18,14 @@ renamed as (
         cast(store_and_fwd_flag as string) as store_and_fwd_flag,
         cast(passenger_count as integer) as passenger_count,
         cast(trip_distance as numeric) as trip_distance,
-
+        1 as trip_type,  -- Yellow taxis can only be street hail (trip_type = 1), so we can hardcode this value
         -- payment info
         cast(fare_amount as numeric) as fare_amount,
         cast(extra as numeric) as extra,
         cast(mta_tax as numeric) as mta_tax,
         cast(tip_amount as numeric) as tip_amount,
         cast(tolls_amount as numeric) as tolls_amount,
+        0 as ehail_fee,  -- Yellow taxis do not have ehail_fee, so we can hardcode this value
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
         cast(payment_type as integer) as payment_type
