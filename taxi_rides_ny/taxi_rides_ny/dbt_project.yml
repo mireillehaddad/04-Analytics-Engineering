@@ -1,0 +1,31 @@
+
+name: 'taxi_rides_ny'
+version: '1.0.0'
+config-version: 2
+
+profile: 'taxi_rides_ny'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+vars:
+  dev_start_date: '2019-01-01'
+  dev_end_date: '2019-02-01'
+
+models:
+  taxi_rides_ny:
+    +materialized: view
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
