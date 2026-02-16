@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_trips
+    description: "Fact table containing one row per taxi trip after deduplication"
+
+    columns:
+      - name: trip_id
+        description: "Primary key generated from trip signature"
+        tests:
+          - not_null
+          
+
+      - name: pickup_datetime
+        description: "Trip pickup timestamp"
+        tests:
+          - not_null
+
+      - name: dropoff_datetime
+        description: "Trip dropoff timestamp"
+        tests:
+          - not_null
+
+      - name: payment_type_desc
+        description: "Human-readable payment type"
